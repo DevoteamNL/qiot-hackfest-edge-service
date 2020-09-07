@@ -18,5 +18,5 @@ public interface RegistrationClient {
      * The registration id should be passed to remove the registration.
      * @param id
      */
-    void unregisterDevice(int id);
+    void deregisterDevice(int id);
 }
