@@ -6,6 +6,7 @@ import io.quarkus.runtime.StartupEvent;
 import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
+import nl.devoteam.registration.model.GeoPosition;
 
 @Startup
 @ApplicationScoped

@@ -1,5 +1,7 @@
 package nl.devoteam.registration;
 
+import nl.devoteam.registration.model.GeoPosition;
+
 public interface LocationService {
 
     /**

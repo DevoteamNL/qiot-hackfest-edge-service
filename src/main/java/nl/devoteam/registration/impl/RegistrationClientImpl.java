@@ -1,8 +1,10 @@
-package nl.devoteam.registration;
+package nl.devoteam.registration.impl;
 
 import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import nl.devoteam.registration.RegistrationClient;
+import nl.devoteam.registration.RegistrationResource;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 

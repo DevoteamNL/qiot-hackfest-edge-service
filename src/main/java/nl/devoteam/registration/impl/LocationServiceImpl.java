@@ -1,6 +1,8 @@
-package nl.devoteam.registration;
+package nl.devoteam.registration.impl;
 
 import javax.enterprise.context.ApplicationScoped;
+import nl.devoteam.registration.model.GeoPosition;
+import nl.devoteam.registration.LocationService;
 
 @ApplicationScoped
 public class LocationServiceImpl implements LocationService {

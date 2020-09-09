@@ -1,8 +1,9 @@
-package nl.devoteam.registration;
+package nl.devoteam.registration.impl;
 
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import javax.enterprise.context.ApplicationScoped;
+import nl.devoteam.registration.DeviceMetadataService;
 
 @ApplicationScoped
 public class DeviceMetadataServiceImpl implements DeviceMetadataService {

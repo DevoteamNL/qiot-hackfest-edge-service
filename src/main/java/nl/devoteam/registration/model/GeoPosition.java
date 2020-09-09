@@ -1,4 +1,4 @@
-package nl.devoteam.registration;
+package nl.devoteam.registration.model;
 
 import java.util.StringJoiner;
 
