@@ -1,11 +1,13 @@
 package nl.devoteam.registration;
 
 import io.quarkus.runtime.ShutdownEvent;
+import io.quarkus.runtime.Startup;
 import io.quarkus.runtime.StartupEvent;
 import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 
+@Startup
 @ApplicationScoped
 public class ApplicationLifecycleListener {
 

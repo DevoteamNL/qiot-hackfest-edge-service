@@ -1,5 +1,8 @@
 package nl.devoteam.registration;
 
+import javax.enterprise.context.ApplicationScoped;
+
+@ApplicationScoped
 public class LocationServiceImpl implements LocationService {
 
     @Override
