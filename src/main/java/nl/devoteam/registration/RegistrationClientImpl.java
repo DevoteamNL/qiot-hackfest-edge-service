@@ -1,0 +1,40 @@
+package nl.devoteam.registration;
+
+import java.util.logging.Logger;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
+
+@ApplicationScoped
+public class RegistrationClientImpl implements RegistrationClient {
+
+    @Inject
+    @RestClient
+    RegistrationResource registrationResource;
+    private static final Logger LOGGER = Logger.getLogger(RegistrationClientImpl.class.getName());
+
+    @ConfigProperty(name = "datahub.api.host")
+    String apiHost;
+
+    @ConfigProperty(name = "datahub.api.version")
+    String apiVersion;
+
+    @ConfigProperty(name = "datahub.api.registrationPath")
+    String registrationPath;
+
+    @Override
+    public int registerDevice(double latitude, double longitude, String name, String serial) {
+        final String registrationUri = apiHost + apiVersion + registrationPath + "/serial/" + serial
+            + "/name/" + name + "/longitude/" + longitude + "/latitude/" + latitude;
+
+        String returnValue = registrationResource.registerDevice(serial, name, longitude, latitude);
+        LOGGER.info("Obtained value from registration endpoint: " + returnValue);
+        return Integer.parseInt(returnValue);
+    }
+
+    @Override
+    public void deregisterDevice(int id) {
+        registrationResource.deregisterDevice(id);
+    }
+}
