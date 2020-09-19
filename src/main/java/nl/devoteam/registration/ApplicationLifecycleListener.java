@@ -29,6 +29,7 @@ public class ApplicationLifecycleListener {
         int registrationId = registrationClient
             .registerDevice(geoPosition.getLatitude(), geoPosition.getLongitude(), "name", "serial");
         deviceMetadataService.setRegistrationId(registrationId);
+        LOGGER.info("Registered this device with ID: " + registrationId);
     }
 
     void onStop(@Observes ShutdownEvent ev) {

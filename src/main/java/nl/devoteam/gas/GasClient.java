@@ -4,8 +4,14 @@ public interface GasClient {
 
     /**
      * Hands the gas data over to the data hub over MQTT.
-     * @param stationId
-     * @param gasData
      */
-    void postGasData(int stationId, GasData gasData);
+    void postGasData(GasData gasData);
+
+
+    /**
+     * Obtains the current gas data from the sensor service.
+     *
+     * @return the current gas data.
+     */
+    GasData receiveGasData(int stationId);
 }

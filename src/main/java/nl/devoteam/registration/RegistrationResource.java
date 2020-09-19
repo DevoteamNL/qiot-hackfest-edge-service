@@ -15,12 +15,12 @@ public interface RegistrationResource {
     @PUT
     @Path("/serial/{serial}/name/{name}/longitude/{longitude}/latitude/{latitude}")
     @Produces("text/plain")
-    public String registerDevice(@PathParam String serial, @PathParam String name, @PathParam double longitude,
-        @PathParam double latitude);
+    String registerDevice(@PathParam("serial") String serial, @PathParam("name") String name,
+        @PathParam("longitude") double longitude, @PathParam("latitude") double latitude);
 
 
     @DELETE
     @Path("/id/{id}")
     @Produces("text/plain")
-    public String deregisterDevice(@PathParam int id);
+    String deregisterDevice(@PathParam("id") int id);
 }
