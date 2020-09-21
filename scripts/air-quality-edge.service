@@ -1,0 +1,10 @@
+[Unit]
+Description=Air Quality Edge Service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/podman start -a air-quality-edge
+ExecStop=/usr/bin/podman stop -t 2 air-quality-edge
+
+[Install]
+WantedBy=local.target
