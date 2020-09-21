@@ -48,5 +48,5 @@ jobs:
           docker build . -f src/main/docker/Dockerfile.native.multiarch -t qiot-hackfest-edge-service
       - name: Push docker image to GitHub Packages
         run: |
-          docker tag qiot-hackfest-edge-service docker.pkg.github.com/DevoteamNL/qiot-hackfest-edge-service/qiot-hackfest-edge-service:latest
-          docker push docker.pkg.github.com/DevoteamNL/qiot-hackfest-edge-service/qiot-hackfest-edge-service:latest
+          docker tag qiot-hackfest-edge-service docker.pkg.github.com/devoteamnl/qiot-hackfest-edge-service/qiot-hackfest-edge-service:latest
+          docker push docker.pkg.github.com/devoteamnl/qiot-hackfest-edge-service/qiot-hackfest-edge-service:latest
