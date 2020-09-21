@@ -1,6 +1,7 @@
 *
 !pom.xml
 !src
+!truststore
 !target/*-runner
 !target/*-runner.jar
 !target/lib/*

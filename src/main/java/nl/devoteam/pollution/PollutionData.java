@@ -11,6 +11,7 @@ public class PollutionData {
     /**
      * Timestamp in ISO-8601 format.
      */
+    private final int stationId;
     private final String instant;
     private final int PM1_0;
     private final int PM2_5;
@@ -25,8 +26,10 @@ public class PollutionData {
     private final int gt5_0um;
     private final int gt10um;
 
-    public PollutionData(String instant, int PM1_0, int PM2_5, int PM10, int PM1_0_atm, int PM2_5_atm, int PM10_atm,
+    public PollutionData(int stationId, String instant, int PM1_0, int PM2_5, int PM10, int PM1_0_atm,
+        int PM2_5_atm, int PM10_atm,
         int gt0_3um, int gt0_5um, int gt1_0um, int gt2_5um, int gt5_0um, int gt10um) {
+        this.stationId = stationId;
         this.instant = instant;
         this.PM1_0 = PM1_0;
         this.PM2_5 = PM2_5;
@@ -40,6 +43,10 @@ public class PollutionData {
         this.gt2_5um = gt2_5um;
         this.gt5_0um = gt5_0um;
         this.gt10um = gt10um;
+    }
+
+    public int getStationId() {
+        return stationId;
     }
 
     public String getInstant() {
@@ -97,6 +104,7 @@ public class PollutionData {
     @Override
     public String toString() {
         return new StringJoiner(", ", PollutionData.class.getSimpleName() + "[", "]")
+            .add("stationId='" + stationId + "'")
             .add("instant='" + instant + "'")
             .add("PM1_0=" + PM1_0)
             .add("PM2_5=" + PM2_5)
