@@ -38,15 +38,15 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      - name: GitHub Packages Login
-        run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p $GITHUB_TOKEN
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Build docker image
         run: |
           docker run --rm --privileged multiarch/qemu-user-static:register --reset
-          docker build . -f src/main/docker/Dockerfile.native.multiarch -t qiot-hackfest-edge-service
-      - name: Push docker image to GitHub Packages
+          docker build . -f src/main/docker/Dockerfile.native.multiarch -t qiot-hackfest-edge-service:latest
+      - name: Push docker image to Docker Hub
+        env:
+          DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
+          DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
         run: |
-          docker tag qiot-hackfest-edge-service docker.pkg.github.com/devoteamnl/qiot-hackfest-edge-service/qiot-hackfest-edge-service:latest
-          docker push docker.pkg.github.com/devoteamnl/qiot-hackfest-edge-service/qiot-hackfest-edge-service:latest
+          docker login docker.io -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
+          docker tag qiot-hackfest-edge-service:latest docker.io/bentaljaard/air-quality-edge:aarch64-latest
+          docker push docker.io/bentaljaard/air-quality-edge:aarch64-latest
