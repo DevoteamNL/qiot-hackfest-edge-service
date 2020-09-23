@@ -33,7 +33,6 @@ public class GasClientImpl implements GasClient {
 
     @Override
     public GasData receiveGasData(int stationId) {
-        return new GasData(stationId, new Date().toInstant().toString(), 1.0, 2.0, 3.0, 4.0);
-//        return gasResource.getGasData();
+        return gasResource.getGasData();
     }
 }

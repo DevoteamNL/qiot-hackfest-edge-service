@@ -43,7 +43,6 @@ public class PollutionClientImpl implements PollutionClient {
 
     @Override
     public PollutionData receivePollutionData(int stationId) {
-        return new PollutionData(stationId, new Date().toInstant().toString(), 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
-//        return pollutionResource.getPollutionData();
+        return pollutionResource.getPollutionData();
     }
 }
