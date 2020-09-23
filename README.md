@@ -1,4 +1,4 @@
-# qiot-hackfest-edge-service project
+# qiot-hackfest-edge-service project ![Master Branch](https://github.com/DevoteamNL/qiot-hackfest-edge-service/workflows/Master%20Branch/badge.svg)
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
