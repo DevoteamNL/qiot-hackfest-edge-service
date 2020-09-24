@@ -1,6 +1,5 @@
 package nl.devoteam.pollution;
 
-import java.util.Date;
 import java.util.concurrent.CompletionStage;
 import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
@@ -33,8 +32,8 @@ public class PollutionClientImpl implements PollutionClient {
         LOGGER.info("Sending payload to Pollution Channel: " + payload);
         CompletionStage<Void> send = pollutionEmitter.send(payload);
         send.whenComplete((unused, throwable) -> {
-                LOGGER.info("Managed to send data.");
-            })
+            LOGGER.info("Managed to send data.");
+        })
             .exceptionally(throwable -> {
                 LOGGER.log(Level.ERROR, "Failed to send message. Error: " + throwable.getMessage());
                 return null;

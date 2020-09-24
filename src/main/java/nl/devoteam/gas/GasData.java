@@ -11,12 +11,15 @@ public class GasData {
     /**
      * Timestamp in ISO-8601 format.
      */
-    private final int stationId;
-    private final String instant;
-    private final double adc;
-    private final double nh3;
-    private final double oxidising;
-    private final double reducing;
+    private int stationId;
+    private String instant;
+    private double adc;
+    private double nh3;
+    private double oxidising;
+    private double reducing;
+
+    public GasData() {
+    }
 
     public GasData(int stationId, String instant, double adc, double nh3, double oxidising, double reducing) {
         this.stationId = stationId;
@@ -49,6 +52,30 @@ public class GasData {
 
     public double getReducing() {
         return reducing;
+    }
+
+    public void setStationId(int stationId) {
+        this.stationId = stationId;
+    }
+
+    public void setInstant(String instant) {
+        this.instant = instant;
+    }
+
+    public void setAdc(double adc) {
+        this.adc = adc;
+    }
+
+    public void setNh3(double nh3) {
+        this.nh3 = nh3;
+    }
+
+    public void setOxidising(double oxidising) {
+        this.oxidising = oxidising;
+    }
+
+    public void setReducing(double reducing) {
+        this.reducing = reducing;
     }
 
     @Override

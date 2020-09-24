@@ -9,8 +9,8 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 public interface GasResource {
 
     @GET
-    @Path("")
+    @Path("/gas")
     @Produces("application/json")
-    public GasData getGasData();
+    GasData getGasData();
 
 }

@@ -11,20 +11,23 @@ public class PollutionData {
     /**
      * Timestamp in ISO-8601 format.
      */
-    private final int stationId;
-    private final String instant;
-    private final int PM1_0;
-    private final int PM2_5;
-    private final int PM10;
-    private final int PM1_0_atm;
-    private final int PM2_5_atm;
-    private final int PM10_atm;
-    private final int gt0_3um;
-    private final int gt0_5um;
-    private final int gt1_0um;
-    private final int gt2_5um;
-    private final int gt5_0um;
-    private final int gt10um;
+    private int stationId;
+    private String instant;
+    private int PM1_0;
+    private int PM2_5;
+    private int PM10;
+    private int PM1_0_atm;
+    private int PM2_5_atm;
+    private int PM10_atm;
+    private int gt0_3um;
+    private int gt0_5um;
+    private int gt1_0um;
+    private int gt2_5um;
+    private int gt5_0um;
+    private int gt10um;
+
+    public PollutionData() {
+    }
 
     public PollutionData(int stationId, String instant, int PM1_0, int PM2_5, int PM10, int PM1_0_atm,
         int PM2_5_atm, int PM10_atm,
@@ -99,6 +102,62 @@ public class PollutionData {
 
     public int getGt10um() {
         return gt10um;
+    }
+
+    public void setStationId(int stationId) {
+        this.stationId = stationId;
+    }
+
+    public void setInstant(String instant) {
+        this.instant = instant;
+    }
+
+    public void setPM1_0(int PM1_0) {
+        this.PM1_0 = PM1_0;
+    }
+
+    public void setPM2_5(int PM2_5) {
+        this.PM2_5 = PM2_5;
+    }
+
+    public void setPM10(int PM10) {
+        this.PM10 = PM10;
+    }
+
+    public void setPM1_0_atm(int PM1_0_atm) {
+        this.PM1_0_atm = PM1_0_atm;
+    }
+
+    public void setPM2_5_atm(int PM2_5_atm) {
+        this.PM2_5_atm = PM2_5_atm;
+    }
+
+    public void setPM10_atm(int PM10_atm) {
+        this.PM10_atm = PM10_atm;
+    }
+
+    public void setGt0_3um(int gt0_3um) {
+        this.gt0_3um = gt0_3um;
+    }
+
+    public void setGt0_5um(int gt0_5um) {
+        this.gt0_5um = gt0_5um;
+    }
+
+    public void setGt1_0um(int gt1_0um) {
+        this.gt1_0um = gt1_0um;
+    }
+
+    public void setGt2_5um(int gt2_5um) {
+        this.gt2_5um = gt2_5um;
+    }
+
+    public void setGt5_0um(int gt5_0um) {
+        this.gt5_0um = gt5_0um;
+    }
+
+    public void setGt10um(int gt10um) {
+        this.gt10um = gt10um;
     }
 
     @Override

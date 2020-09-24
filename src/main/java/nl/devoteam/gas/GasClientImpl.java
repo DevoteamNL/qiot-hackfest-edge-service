@@ -1,6 +1,5 @@
 package nl.devoteam.gas;
 
-import java.util.Date;
 import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
