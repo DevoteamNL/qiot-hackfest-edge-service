@@ -31,7 +31,7 @@ public class GasClientImpl implements GasClient {
     }
 
     @Override
-    public GasData receiveGasData(int stationId) {
+    public GasData receiveGasData() {
         return gasResource.getGasData();
     }
 }

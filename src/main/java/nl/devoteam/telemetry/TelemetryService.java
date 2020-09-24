@@ -31,7 +31,8 @@ public class TelemetryService {
         long startTime = new Date().getTime();
         LOGGER.info("Gathering Pollution Data -- Starting scheduled method at " + startTime);
 
-        PollutionData pollutionData = pollutionClient.receivePollutionData(deviceMetadataService.getRegistrationId());
+        PollutionData pollutionData = pollutionClient.receivePollutionData();
+        pollutionData.setStationId(deviceMetadataService.getRegistrationId());
         pollutionClient.postPollutionData(pollutionData);
 
         long endTime = new Date().getTime();
@@ -43,7 +44,8 @@ public class TelemetryService {
         long startTime = new Date().getTime();
         LOGGER.info("Gathering Gas Data -- Starting scheduled method at " + startTime);
 
-        GasData gasData = gasClient.receiveGasData(deviceMetadataService.getRegistrationId());
+        GasData gasData = gasClient.receiveGasData();
+        gasData.setStationId(deviceMetadataService.getRegistrationId());
         gasClient.postGasData(gasData);
 
         long endTime = new Date().getTime();

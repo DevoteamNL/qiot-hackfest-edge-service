@@ -12,6 +12,6 @@ public interface PollutionClient {
      *
      * @return the current pollution data.
      */
-    PollutionData receivePollutionData(int stationId);
+    PollutionData receivePollutionData();
 
 }

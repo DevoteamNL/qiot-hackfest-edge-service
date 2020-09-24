@@ -41,7 +41,7 @@ public class PollutionClientImpl implements PollutionClient {
     }
 
     @Override
-    public PollutionData receivePollutionData(int stationId) {
+    public PollutionData receivePollutionData() {
         return pollutionResource.getPollutionData();
     }
 }

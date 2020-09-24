@@ -13,5 +13,5 @@ public interface GasClient {
      *
      * @return the current gas data.
      */
-    GasData receiveGasData(int stationId);
+    GasData receiveGasData();
 }
