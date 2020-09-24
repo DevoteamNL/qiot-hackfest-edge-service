@@ -13,12 +13,12 @@ public class PollutionData {
      */
     private int stationId;
     private String instant;
-    private int PM1_0;
-    private int PM2_5;
-    private int PM10;
-    private int PM1_0_atm;
-    private int PM2_5_atm;
-    private int PM10_atm;
+    private int pm1_0;
+    private int pm2_5;
+    private int pm10;
+    private int pm1_0_atm;
+    private int pm2_5_atm;
+    private int pm10_atm;
     private int gt0_3um;
     private int gt0_5um;
     private int gt1_0um;
@@ -29,17 +29,17 @@ public class PollutionData {
     public PollutionData() {
     }
 
-    public PollutionData(int stationId, String instant, int PM1_0, int PM2_5, int PM10, int PM1_0_atm,
-        int PM2_5_atm, int PM10_atm,
+    public PollutionData(int stationId, String instant, int pm1_0, int pm2_5, int pm10, int pm1_0_atm,
+        int pm2_5_atm, int pm10_atm,
         int gt0_3um, int gt0_5um, int gt1_0um, int gt2_5um, int gt5_0um, int gt10um) {
         this.stationId = stationId;
         this.instant = instant;
-        this.PM1_0 = PM1_0;
-        this.PM2_5 = PM2_5;
-        this.PM10 = PM10;
-        this.PM1_0_atm = PM1_0_atm;
-        this.PM2_5_atm = PM2_5_atm;
-        this.PM10_atm = PM10_atm;
+        this.pm1_0 = pm1_0;
+        this.pm2_5 = pm2_5;
+        this.pm10 = pm10;
+        this.pm1_0_atm = pm1_0_atm;
+        this.pm2_5_atm = pm2_5_atm;
+        this.pm10_atm = pm10_atm;
         this.gt0_3um = gt0_3um;
         this.gt0_5um = gt0_5um;
         this.gt1_0um = gt1_0um;
@@ -56,28 +56,28 @@ public class PollutionData {
         return instant;
     }
 
-    public int getPM1_0() {
-        return PM1_0;
+    public int getPm1_0() {
+        return pm1_0;
     }
 
-    public int getPM2_5() {
-        return PM2_5;
+    public int getPm2_5() {
+        return pm2_5;
     }
 
-    public int getPM10() {
-        return PM10;
+    public int getPm10() {
+        return pm10;
     }
 
-    public int getPM1_0_atm() {
-        return PM1_0_atm;
+    public int getPm1_0_atm() {
+        return pm1_0_atm;
     }
 
-    public int getPM2_5_atm() {
-        return PM2_5_atm;
+    public int getPm2_5_atm() {
+        return pm2_5_atm;
     }
 
-    public int getPM10_atm() {
-        return PM10_atm;
+    public int getPm10_atm() {
+        return pm10_atm;
     }
 
     public int getGt0_3um() {
@@ -112,28 +112,28 @@ public class PollutionData {
         this.instant = instant;
     }
 
-    public void setPM1_0(int PM1_0) {
-        this.PM1_0 = PM1_0;
+    public void setPm1_0(int pm1_0) {
+        this.pm1_0 = pm1_0;
     }
 
-    public void setPM2_5(int PM2_5) {
-        this.PM2_5 = PM2_5;
+    public void setPm2_5(int pm2_5) {
+        this.pm2_5 = pm2_5;
     }
 
-    public void setPM10(int PM10) {
-        this.PM10 = PM10;
+    public void setPm10(int pm10) {
+        this.pm10 = pm10;
     }
 
-    public void setPM1_0_atm(int PM1_0_atm) {
-        this.PM1_0_atm = PM1_0_atm;
+    public void setPm1_0_atm(int pm1_0_atm) {
+        this.pm1_0_atm = pm1_0_atm;
     }
 
-    public void setPM2_5_atm(int PM2_5_atm) {
-        this.PM2_5_atm = PM2_5_atm;
+    public void setPm2_5_atm(int pm2_5_atm) {
+        this.pm2_5_atm = pm2_5_atm;
     }
 
-    public void setPM10_atm(int PM10_atm) {
-        this.PM10_atm = PM10_atm;
+    public void setPm10_atm(int pm10_atm) {
+        this.pm10_atm = pm10_atm;
     }
 
     public void setGt0_3um(int gt0_3um) {
@@ -165,12 +165,12 @@ public class PollutionData {
         return new StringJoiner(", ", PollutionData.class.getSimpleName() + "[", "]")
             .add("stationId='" + stationId + "'")
             .add("instant='" + instant + "'")
-            .add("PM1_0=" + PM1_0)
-            .add("PM2_5=" + PM2_5)
-            .add("PM10=" + PM10)
-            .add("PM1_0_atm=" + PM1_0_atm)
-            .add("PM2_5_atm=" + PM2_5_atm)
-            .add("PM10_atm=" + PM10_atm)
+            .add("PM1_0=" + pm1_0)
+            .add("PM2_5=" + pm2_5)
+            .add("PM10=" + pm10)
+            .add("PM1_0_atm=" + pm1_0_atm)
+            .add("PM2_5_atm=" + pm2_5_atm)
+            .add("PM10_atm=" + pm10_atm)
             .add("gt0_3um=" + gt0_3um)
             .add("gt0_5um=" + gt0_5um)
             .add("gt1_0um=" + gt1_0um)
