@@ -25,9 +25,6 @@ public class RegistrationClientImpl implements RegistrationClient {
 
     @Override
     public int registerDevice(double latitude, double longitude, String name, String serial) {
-        final String registrationUri = apiHost + apiVersion + registrationPath + "/serial/" + serial
-            + "/name/" + name + "/longitude/" + longitude + "/latitude/" + latitude;
-
         String returnValue = registrationResource.registerDevice(serial, name, longitude, latitude);
         LOGGER.info("Obtained value from registration endpoint: " + returnValue);
         return Integer.parseInt(returnValue);
