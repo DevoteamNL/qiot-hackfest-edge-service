@@ -46,3 +46,9 @@ docker build -t [docker image tag name] -f Dockerfile.native.multiarch .
 
 We use the `Dockerfile.native.mulitarch` container along with GitHub actions to build the containers natively upon commit to master.
 For any feature branch, we just compile and see if things run. :-) 
+
+## Running the container on the raspberry
+
+```
+podman run -d -p 8080:8080 --network=qiot --name=air-quality-edge bentaljaard/air-quality-edge:aarch64-latest
+```
