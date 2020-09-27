@@ -25,5 +25,5 @@ jobs:
             ${{ runner.os }}-maven-
       - name: Maven Package
         run: mvn -B clean package -DskipTests
-      - name: Maven Verify
-        run: mvn -B clean verify
+#       - name: Maven Verify
+#         run: mvn -B clean verify
