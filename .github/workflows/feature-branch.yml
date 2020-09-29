@@ -24,6 +24,4 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
       - name: Maven Package
-        run: mvn -B clean package -DskipTests
-#       - name: Maven Verify
-#         run: mvn -B clean verify
+        run: mvn -B clean package
