@@ -45,7 +45,6 @@ class PollutionClientImplTest {
 
 
     @Test
-    @Disabled("Flaky test. :-(")
     @DisplayName("Ensure station ID is always printed first.")
     void ensureStationIdOrdering() {
         CompletableFuture<Void> voidCompletableFuture = CompletableFuture.runAsync(() -> {
@@ -94,6 +93,7 @@ class PollutionClientImplTest {
     }
 
     @Test
+    @Disabled("Flaky test. :-(")
     @DisplayName("In case the CompletableFuture returns exceptionally, ensure we log both the info and error message.")
     void testLogEventsInCaseOfError() {
         CompletableFuture<Void> voidCompletableFuture = CompletableFuture.runAsync(() -> {
