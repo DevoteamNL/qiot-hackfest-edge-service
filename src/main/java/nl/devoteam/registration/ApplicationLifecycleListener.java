@@ -3,16 +3,17 @@ package nl.devoteam.registration;
 import io.quarkus.runtime.ShutdownEvent;
 import io.quarkus.runtime.Startup;
 import io.quarkus.runtime.StartupEvent;
-import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Startup
 @ApplicationScoped
 public class ApplicationLifecycleListener {
 
-    private static final Logger LOGGER = Logger.getLogger(ApplicationLifecycleListener.class.getName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(ApplicationLifecycleListener.class.getName());
     private final ManagementServiceResource managementServiceResource;
     private final RegistrationClient registrationClient;
     private final LocationService locationService;

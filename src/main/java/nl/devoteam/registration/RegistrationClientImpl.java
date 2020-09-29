@@ -1,10 +1,11 @@
 package nl.devoteam.registration;
 
-import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @ApplicationScoped
 public class RegistrationClientImpl implements RegistrationClient {
@@ -12,7 +13,7 @@ public class RegistrationClientImpl implements RegistrationClient {
     @Inject
     @RestClient
     RegistrationResource registrationResource;
-    private static final Logger LOGGER = Logger.getLogger(RegistrationClientImpl.class.getName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(RegistrationClientImpl.class.getName());
 
     @ConfigProperty(name = "datahub.api.host")
     String apiHost;

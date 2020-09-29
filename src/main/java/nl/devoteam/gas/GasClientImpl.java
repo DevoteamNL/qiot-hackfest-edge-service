@@ -3,27 +3,26 @@ package nl.devoteam.gas;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.CompletionStage;
-import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
-import org.jboss.logmanager.Level;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @ApplicationScoped
 public class GasClientImpl implements GasClient {
 
-    private static final Logger LOGGER = Logger.getLogger(GasClientImpl.class.getName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(GasClientImpl.class);
     private final GasResource gasResource;
-    @Inject
-    @Channel("gas")
-    Emitter<String> gasEmitter;
+    private final Emitter<String> gasEmitter;
 
-    public GasClientImpl(@RestClient GasResource gasResource) {
+    public GasClientImpl(@RestClient GasResource gasResource,
+        @Channel("gas") Emitter<String> gasEmitter) {
         this.gasResource = gasResource;
+        this.gasEmitter = gasEmitter;
     }
 
     @Override
@@ -41,9 +40,10 @@ public class GasClientImpl implements GasClient {
         CompletionStage<Void> send = gasEmitter.send(payload);
         send.whenComplete((unused, throwable) -> LOGGER.info("Managed to send gas data."))
             .exceptionally(throwable -> {
-                LOGGER.log(Level.ERROR, "Failed to send message. Error: " + throwable.getMessage());
+                LOGGER.error("Failed to send message. Error: " + throwable.getMessage());
                 return null;
-            });    }
+            });
+    }
 
     @Override
     public GasData receiveGasData() {

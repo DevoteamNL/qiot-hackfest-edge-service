@@ -3,28 +3,26 @@ package nl.devoteam.pollution;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.CompletionStage;
-import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
-import org.jboss.logmanager.Level;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @ApplicationScoped
 public class PollutionClientImpl implements PollutionClient {
 
-    private static final Logger LOGGER = Logger.getLogger(PollutionClientImpl.class.getName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(PollutionClientImpl.class.getName());
     private final PollutionResource pollutionResource;
+    private final Emitter<String> pollutionEmitter;
 
-    @Inject
-    @Channel("pollution")
-    Emitter<String> pollutionEmitter;
-
-    public PollutionClientImpl(@RestClient PollutionResource pollutionResource) {
+    public PollutionClientImpl(@RestClient PollutionResource pollutionResource,
+        @Channel("pollution") Emitter<String> pollutionEmitter) {
         this.pollutionResource = pollutionResource;
+        this.pollutionEmitter = pollutionEmitter;
     }
 
     @Override
@@ -51,7 +49,7 @@ public class PollutionClientImpl implements PollutionClient {
         CompletionStage<Void> send = pollutionEmitter.send(payload);
         send.whenComplete((unused, throwable) -> LOGGER.info("Managed to send data."))
             .exceptionally(throwable -> {
-                LOGGER.log(Level.ERROR, "Failed to send message. Error: " + throwable.getMessage());
+                LOGGER.error("Failed to send message. Error: " + throwable.getMessage());
                 return null;
             });
     }

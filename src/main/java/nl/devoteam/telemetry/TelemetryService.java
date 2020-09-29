@@ -3,18 +3,19 @@ package nl.devoteam.telemetry;
 
 import io.quarkus.scheduler.Scheduled;
 import java.util.Date;
-import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import nl.devoteam.gas.GasClient;
 import nl.devoteam.gas.GasData;
 import nl.devoteam.pollution.PollutionClient;
 import nl.devoteam.pollution.PollutionData;
 import nl.devoteam.registration.DeviceMetadataService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @ApplicationScoped
 public class TelemetryService {
 
-    private static final Logger LOGGER = Logger.getLogger(TelemetryService.class.getName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(TelemetryService.class.getName());
     private final GasClient gasClient;
     private final PollutionClient pollutionClient;
     private final DeviceMetadataService deviceMetadataService;

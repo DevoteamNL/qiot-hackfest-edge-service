@@ -5,18 +5,18 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @ApplicationScoped
 public class LocationServiceImpl implements LocationService {
 
-    private static final Logger LOGGER = Logger.getLogger(LocationServiceImpl.class.getName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(LocationServiceImpl.class.getName());
     private static final String QUERY = "https://nominatim.openstreetmap.org/search?q=Den%20Haag&format=json&addressdetails=1";
     private GeoPosition instance;
 
@@ -48,7 +48,7 @@ public class LocationServiceImpl implements LocationService {
             double latitude = Double
                 .parseDouble(jsonObject.getString("lat"));
 
-            LOGGER.log(Level.INFO, "Resolved position to be on longitude " + longitude + ", latitude " + latitude);
+            LOGGER.info("Resolved position to be on longitude " + longitude + ", latitude " + latitude);
             return new GeoPosition(longitude, latitude);
         } catch (IOException e) {
             e.printStackTrace();
