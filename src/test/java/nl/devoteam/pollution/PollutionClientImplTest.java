@@ -22,7 +22,7 @@ import org.mockito.Mockito;
 
 class PollutionClientImplTest {
 
-    private final Logger rootLogger = Logger.getLogger("");
+    private final Logger rootLogger = Logger.getLogger(PollutionClientImpl.class.getName());
     private QueuedHandler handler;
 
     private final PollutionResource pollutionResource = Mockito.mock(PollutionResource.class);
@@ -108,7 +108,7 @@ class PollutionClientImplTest {
         assertEquals(optionalInfoLogEvent.get().getLevel(), java.util.logging.Level.INFO);
 
         Optional<ExtLogRecord> optionalErrorLogEvent = handler.queue.stream()
-            .filter(extLogRecord -> extLogRecord.getMessage().contains("Failed to send message. Error:")).findFirst();
+            .filter(extLogRecord -> extLogRecord.getMessage().contains("Failed to send message. Error")).findFirst();
         assertTrue(optionalErrorLogEvent.isPresent());
         assertEquals(optionalErrorLogEvent.get().getLevel(), java.util.logging.Level.SEVERE);
     }

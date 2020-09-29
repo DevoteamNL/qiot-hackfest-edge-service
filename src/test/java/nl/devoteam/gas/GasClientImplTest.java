@@ -24,7 +24,7 @@ import org.mockito.Mockito;
 
 class GasClientImplTest {
 
-    private final Logger rootLogger = Logger.getLogger("");
+    private final Logger rootLogger = Logger.getLogger(GasClientImpl.class.getName());
     private QueuedHandler handler;
 
     private final GasResource gasResource = Mockito.mock(GasResource.class);

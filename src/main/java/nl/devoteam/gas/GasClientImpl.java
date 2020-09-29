@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 @ApplicationScoped
 public class GasClientImpl implements GasClient {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(GasClientImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(GasClientImpl.class.getName());
     private final GasResource gasResource;
     private final Emitter<String> gasEmitter;
 
